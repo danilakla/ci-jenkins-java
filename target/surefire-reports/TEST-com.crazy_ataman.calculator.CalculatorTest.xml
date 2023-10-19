@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="com.crazy_ataman.calculator.CalculatorTest" time="0.159" tests="26" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="com.crazy_ataman.calculator.CalculatorTest" time="0.205" tests="41" errors="0" skipped="0" failures="0">
   <properties>
     <property name="java.specification.version" value="17"/>
     <property name="sun.cpu.isalist" value="amd64"/>
@@ -15,7 +15,7 @@
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
     <property name="user.country" value="RU"/>
     <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk-17\bin"/>
-    <property name="sun.java.command" value="C:\Users\yyyyt\AppData\Local\Temp\surefire2358578070162271562\surefirebooter-20231019232656493_3.jar C:\Users\yyyyt\AppData\Local\Temp\surefire2358578070162271562 2023-10-19T23-26-56_330-jvmRun1 surefire-20231019232656493_1tmp surefire_0-20231019232656493_2tmp"/>
+    <property name="sun.java.command" value="C:\Users\yyyyt\AppData\Local\Temp\surefire5888857201451891416\surefirebooter-20231019233505465_3.jar C:\Users\yyyyt\AppData\Local\Temp\surefire5888857201451891416 2023-10-19T23-35-05_300-jvmRun1 surefire-20231019233505465_1tmp surefire_0-20231019233505465_2tmp"/>
     <property name="jdk.debug" value="release"/>
     <property name="surefire.test.class.path" value="D:\app\testing\Lab6-7_additional_labs\Calculator\ci-jenkins-java\target\test-classes;D:\app\testing\Lab6-7_additional_labs\Calculator\ci-jenkins-java\target\classes;C:\Users\yyyyt\.m2\repository\org\junit\jupiter\junit-jupiter-api\5.9.1\junit-jupiter-api-5.9.1.jar;C:\Users\yyyyt\.m2\repository\org\opentest4j\opentest4j\1.2.0\opentest4j-1.2.0.jar;C:\Users\yyyyt\.m2\repository\org\junit\platform\junit-platform-commons\1.9.1\junit-platform-commons-1.9.1.jar;C:\Users\yyyyt\.m2\repository\org\apiguardian\apiguardian-api\1.1.2\apiguardian-api-1.1.2.jar;C:\Users\yyyyt\.m2\repository\org\junit\jupiter\junit-jupiter-engine\5.9.1\junit-jupiter-engine-5.9.1.jar;C:\Users\yyyyt\.m2\repository\org\junit\platform\junit-platform-engine\1.9.1\junit-platform-engine-1.9.1.jar;"/>
     <property name="sun.cpu.endian" value="little"/>
@@ -30,7 +30,7 @@
     <property name="line.separator" value="&#10;"/>
     <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
     <property name="java.specification.name" value="Java Platform API Specification"/>
-    <property name="surefire.real.class.path" value="C:\Users\yyyyt\AppData\Local\Temp\surefire2358578070162271562\surefirebooter-20231019232656493_3.jar"/>
+    <property name="surefire.real.class.path" value="C:\Users\yyyyt\AppData\Local\Temp\surefire5888857201451891416\surefirebooter-20231019233505465_3.jar"/>
     <property name="user.script" value=""/>
     <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
     <property name="java.runtime.version" value="17.0.8+9-LTS-211"/>
@@ -56,30 +56,45 @@
     <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
     <property name="java.class.version" value="61.0"/>
   </properties>
-  <testcase name="testNotNullLineShouldNotTrow" classname="com.crazy_ataman.calculator.CalculatorTest" time="0.064"/>
-  <testcase name="testMinusOperation" classname="com.crazy_ataman.calculator.CalculatorTest" time="0.005"/>
-  <testcase name="testPlusOperation" classname="com.crazy_ataman.calculator.CalculatorTest" time="0.001"/>
+  <testcase name="t44estNumberTokenWithSameIndex" classname="com.crazy_ataman.calculator.CalculatorTest" time="0.075"/>
+  <testcase name="testExpressionWithMultipleOperators" classname="com.crazy_ataman.calculator.CalculatorTest" time="0.003"/>
+  <testcase name="t76estAddition" classname="com.crazy_ataman.calculator.CalculatorTest" time="0.013"/>
+  <testcase name="testNotNullLineShouldNotTrow" classname="com.crazy_ataman.calculator.CalculatorTest" time="0.003"/>
+  <testcase name="t1estEqualsWithDifferentObjectTypes" classname="com.crazy_ataman.calculator.CalculatorTest" time="0.0"/>
+  <testcase name="testMinusOperation" classname="com.crazy_ataman.calculator.CalculatorTest" time="0.0"/>
+  <testcase name="testPlusOperation" classname="com.crazy_ataman.calculator.CalculatorTest" time="0.0"/>
+  <testcase name="t64estOperationTokenWithSameIndex" classname="com.crazy_ataman.calculator.CalculatorTest" time="0.002"/>
+  <testcase name="t5estMultiplication" classname="com.crazy_ataman.calculator.CalculatorTest" time="0.002"/>
   <testcase name="testSolveValidExpression" classname="com.crazy_ataman.calculator.CalculatorTest" time="0.001"/>
-  <testcase name="testOperationTokenCreation" classname="com.crazy_ataman.calculator.CalculatorTest" time="0.003"/>
-  <testcase name="testToString" classname="com.crazy_ataman.calculator.CalculatorTest" time="0.001"/>
-  <testcase name="testResultShouldBeEmptyIfLineInvalid" classname="com.crazy_ataman.calculator.CalculatorTest" time="0.001"/>
+  <testcase name="testOperationTokenCreation" classname="com.crazy_ataman.calculator.CalculatorTest" time="0.0"/>
+  <testcase name="t2estComplexExpression" classname="com.crazy_ataman.calculator.CalculatorTest" time="0.0"/>
+  <testcase name="testToString" classname="com.crazy_ataman.calculator.CalculatorTest" time="0.0"/>
+  <testcase name="testResultShouldBeEmptyIfLineInvalid" classname="com.crazy_ataman.calculator.CalculatorTest" time="0.0"/>
   <testcase name="testMultiplication" classname="com.crazy_ataman.calculator.CalculatorTest" time="0.001"/>
-  <testcase name="testResultShouldBeEmptyIfLineIsWord" classname="com.crazy_ataman.calculator.CalculatorTest" time="0.001"/>
-  <testcase name="testSolveInvalidExpression" classname="com.crazy_ataman.calculator.CalculatorTest" time="0.001"/>
-  <testcase name="testAddition" classname="com.crazy_ataman.calculator.CalculatorTest" time="0.001"/>
-  <testcase name="testNumberTokenCreation" classname="com.crazy_ataman.calculator.CalculatorTest" time="0.001"/>
-  <testcase name="testEmptyLineShouldProduceEmptyResult" classname="com.crazy_ataman.calculator.CalculatorTest" time="0.001"/>
-  <testcase name="testResultShouldBeEmptyIfLineHasInvalidOperations" classname="com.crazy_ataman.calculator.CalculatorTest" time="0.001"/>
-  <testcase name="testComplexExpression" classname="com.crazy_ataman.calculator.CalculatorTest" time="0.001"/>
-  <testcase name="testTokenCreationWithNegativeIndex" classname="com.crazy_ataman.calculator.CalculatorTest" time="0.0"/>
-  <testcase name="testNullLineShouldThrow" classname="com.crazy_ataman.calculator.CalculatorTest" time="0.0"/>
-  <testcase name="testDivideOperation" classname="com.crazy_ataman.calculator.CalculatorTest" time="0.0"/>
-  <testcase name="testHashCode" classname="com.crazy_ataman.calculator.CalculatorTest" time="0.0"/>
-  <testcase name="testDivision" classname="com.crazy_ataman.calculator.CalculatorTest" time="0.0"/>
+  <testcase name="te65stSubtraction" classname="com.crazy_ataman.calculator.CalculatorTest" time="0.001"/>
+  <testcase name="testResultShouldBeEmptyIfLineIsWord" classname="com.crazy_ataman.calculator.CalculatorTest" time="0.002"/>
+  <testcase name="testSolveInvalidExpression" classname="com.crazy_ataman.calculator.CalculatorTest" time="0.0"/>
+  <testcase name="testAddition" classname="com.crazy_ataman.calculator.CalculatorTest" time="0.0"/>
+  <testcase name="testNumberTokenCreation" classname="com.crazy_ataman.calculator.CalculatorTest" time="0.0"/>
+  <testcase name="testEmptyLineShouldProduceEmptyResult" classname="com.crazy_ataman.calculator.CalculatorTest" time="0.0"/>
+  <testcase name="testResultShouldBeEmptyIfLineHasInvalidOperations" classname="com.crazy_ataman.calculator.CalculatorTest" time="0.01"/>
+  <testcase name="t4estEqualsWithDifferentTokens" classname="com.crazy_ataman.calculator.CalculatorTest" time="0.001"/>
+  <testcase name="testEqualsWithDifferentTokens" classname="com.crazy_ataman.calculator.CalculatorTest" time="0.001"/>
+  <testcase name="testEqualsWithDifferentObjectTypes" classname="com.crazy_ataman.calculator.CalculatorTest" time="0.001"/>
+  <testcase name="testNumberTokenWithSameIndex" classname="com.crazy_ataman.calculator.CalculatorTest" time="0.001"/>
+  <testcase name="testTokenCreationWithNegativeIndex" classname="com.crazy_ataman.calculator.CalculatorTest" time="0.001"/>
+  <testcase name="testNullLineShouldThrow" classname="com.crazy_ataman.calculator.CalculatorTest" time="0.003"/>
+  <testcase name="testOperationTokenWithSameIndex" classname="com.crazy_ataman.calculator.CalculatorTest" time="0.0"/>
+  <testcase name="testDivisionByZero" classname="com.crazy_ataman.calculator.CalculatorTest" time="0.001"/>
+  <testcase name="testDivideOperation" classname="com.crazy_ataman.calculator.CalculatorTest" time="0.001"/>
+  <testcase name="testHashCode" classname="com.crazy_ataman.calculator.CalculatorTest" time="0.002"/>
+  <testcase name="testDivision" classname="com.crazy_ataman.calculator.CalculatorTest" time="0.001"/>
   <testcase name="testEquals" classname="com.crazy_ataman.calculator.CalculatorTest" time="0.0"/>
-  <testcase name="testTokenToStringPerformance" classname="com.crazy_ataman.calculator.CalculatorTest" time="0.0"/>
+  <testcase name="t3estDivision" classname="com.crazy_ataman.calculator.CalculatorTest" time="0.001"/>
+  <testcase name="testTokenToStringPerformance" classname="com.crazy_ataman.calculator.CalculatorTest" time="0.008"/>
   <testcase name="testSingleNumberShouldProduceEmptyResult" classname="com.crazy_ataman.calculator.CalculatorTest" time="0.0"/>
   <testcase name="testSubtraction" classname="com.crazy_ataman.calculator.CalculatorTest" time="0.0"/>
   <testcase name="testInvalidExpression" classname="com.crazy_ataman.calculator.CalculatorTest" time="0.0"/>
+  <testcase name="t10estInvalidExpression" classname="com.crazy_ataman.calculator.CalculatorTest" time="0.0"/>
   <testcase name="testMultiplyOperation" classname="com.crazy_ataman.calculator.CalculatorTest" time="0.0"/>
 </testsuite>

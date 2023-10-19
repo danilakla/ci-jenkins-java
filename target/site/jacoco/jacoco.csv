@@ -1,9 +1,9 @@
 GROUP,PACKAGE,CLASS,INSTRUCTION_MISSED,INSTRUCTION_COVERED,BRANCH_MISSED,BRANCH_COVERED,LINE_MISSED,LINE_COVERED,COMPLEXITY_MISSED,COMPLEXITY_COVERED,METHOD_MISSED,METHOD_COVERED
-Calculator,com.crazy_ataman.calculator,Calculator.new Comparator() {...},34,18,14,2,4,4,8,2,0,2
+Calculator,com.crazy_ataman.calculator,Calculator.new Comparator() {...},0,52,3,13,0,8,3,7,0,2
 Calculator,com.crazy_ataman.calculator,Calculator.new Predicate() {...},0,9,0,0,0,2,0,2,0,2
 Calculator,com.crazy_ataman.calculator,Calculator.new Predicate() {...},0,9,0,0,0,2,0,2,0,2
-Calculator,com.crazy_ataman.calculator,Calculator,28,241,11,20,4,52,9,10,0,2
+Calculator,com.crazy_ataman.calculator,Calculator,0,269,8,23,0,56,8,11,0,2
 Calculator,com.crazy_ataman.calculator,CalculatorApplication,60,0,8,0,17,0,6,0,2,0
 Calculator,com.crazy_ataman.calculator,Calculator.new Predicate() {...},0,21,0,2,0,2,0,3,0,2
 Calculator,com.crazy_ataman.calculator,Calculator.new Predicate() {...},0,21,0,2,0,2,0,3,0,2
-Calculator,com.crazy_ataman.calculator,CalculatorToken,4,141,7,13,0,23,7,15,0,12
+Calculator,com.crazy_ataman.calculator,CalculatorToken,2,143,4,16,0,23,4,18,0,12

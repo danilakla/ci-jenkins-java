@@ -50,9 +50,9 @@ class CalculatorToken {
     @Override
     public boolean equals(Object o) {
 <span class="pc bpc" id="L52" title="1 of 2 branches missed.">        if (this == o) return true;</span>
-<span class="pc bpc" id="L53" title="2 of 4 branches missed.">        if (o == null || getClass() != o.getClass()) return false;</span>
+<span class="pc bpc" id="L53" title="1 of 4 branches missed.">        if (o == null || getClass() != o.getClass()) return false;</span>
 <span class="fc" id="L54">        CalculatorToken that = (CalculatorToken) o;</span>
-<span class="pc bpc" id="L55" title="2 of 6 branches missed.">        return index == that.index &amp;&amp; Objects.equals(number, that.number) &amp;&amp; Objects.equals(operation, that.operation);</span>
+<span class="fc bfc" id="L55" title="All 6 branches covered.">        return index == that.index &amp;&amp; Objects.equals(number, that.number) &amp;&amp; Objects.equals(operation, that.operation);</span>
     }
 
     @Override

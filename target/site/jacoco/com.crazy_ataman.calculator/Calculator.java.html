@@ -38,13 +38,13 @@ import java.util.stream.Collectors;
 <span class="fc" id="L38">                    }).sorted(new Comparator&lt;CalculatorToken&gt;() {</span>
                         @Override
                         public int compare(CalculatorToken token1, CalculatorToken token2) {
-<span class="pc bpc" id="L41" title="3 of 4 branches missed.">                            if ((token1.getOperation() == '*' || token1.getOperation() == '/')</span>
-<span class="pc bpc" id="L42" title="3 of 4 branches missed.">                                    &amp;&amp; (token2.getOperation() == '+' || token2.getOperation() == '-'))</span>
+<span class="fc bfc" id="L41" title="All 4 branches covered.">                            if ((token1.getOperation() == '*' || token1.getOperation() == '/')</span>
+<span class="pc bpc" id="L42" title="1 of 4 branches missed.">                                    &amp;&amp; (token2.getOperation() == '+' || token2.getOperation() == '-'))</span>
 <span class="fc" id="L43">                                return -1;</span>
-<span class="nc bnc" id="L44" title="All 4 branches missed.">                            else if ((token2.getOperation() == '*' || token2.getOperation() == '/')</span>
-<span class="nc bnc" id="L45" title="All 4 branches missed.">                                    &amp;&amp; (token1.getOperation() == '+' || token1.getOperation() == '-'))</span>
-<span class="nc" id="L46">                                return 1;</span>
-<span class="nc" id="L47">                            else return 0;</span>
+<span class="pc bpc" id="L44" title="1 of 4 branches missed.">                            else if ((token2.getOperation() == '*' || token2.getOperation() == '/')</span>
+<span class="pc bpc" id="L45" title="1 of 4 branches missed.">                                    &amp;&amp; (token1.getOperation() == '+' || token1.getOperation() == '-'))</span>
+<span class="fc" id="L46">                                return 1;</span>
+<span class="fc" id="L47">                            else return 0;</span>
                         }
 <span class="fc" id="L49">                    }).collect(Collectors.toList());</span>
 <span class="fc" id="L50">            List&lt;CalculatorToken&gt; numbers = tokens.stream().filter(new Predicate&lt;CalculatorToken&gt;() {</span>
@@ -77,16 +77,16 @@ import java.util.stream.Collectors;
 <span class="fc" id="L77">                    Optional&lt;CalculatorToken&gt; op2 = numbers.stream().filter(operandPredicate2).findFirst();</span>
 <span class="pc bpc" id="L78" title="1 of 2 branches missed.">                    if (op2.isPresent())</span>
 <span class="fc" id="L79">                        operand2 = op2.get().getNumber();</span>
-<span class="pc bpc" id="L80" title="1 of 2 branches missed.">                } else if (operations.get(i - 1).getIndex() &gt; operation.getIndex()) {</span>
+<span class="fc bfc" id="L80" title="All 2 branches covered.">                } else if (operations.get(i - 1).getIndex() &gt; operation.getIndex()) {</span>
 <span class="fc" id="L81">                    Optional&lt;CalculatorToken&gt; op1 = numbers.stream().filter(operandPredicate1).findFirst();</span>
 <span class="pc bpc" id="L82" title="1 of 2 branches missed.">                    if (op1.isPresent())</span>
 <span class="fc" id="L83">                        operand1 = op1.get().getNumber();</span>
 <span class="fc" id="L84">                    operand2 = result;</span>
-<span class="pc bnc" id="L85" title="All 2 branches missed.">                } else if (operations.get(i - 1).getIndex() &lt; operation.getIndex()) {</span>
-<span class="nc" id="L86">                    operand1 = result;</span>
-<span class="nc" id="L87">                    Optional&lt;CalculatorToken&gt; op2 = numbers.stream().filter(operandPredicate2).findFirst();</span>
-<span class="nc bnc" id="L88" title="All 2 branches missed.">                    if (op2.isPresent())</span>
-<span class="nc" id="L89">                        operand2 = op2.get().getNumber();</span>
+<span class="pc bpc" id="L85" title="1 of 2 branches missed.">                } else if (operations.get(i - 1).getIndex() &lt; operation.getIndex()) {</span>
+<span class="fc" id="L86">                    operand1 = result;</span>
+<span class="fc" id="L87">                    Optional&lt;CalculatorToken&gt; op2 = numbers.stream().filter(operandPredicate2).findFirst();</span>
+<span class="pc bpc" id="L88" title="1 of 2 branches missed.">                    if (op2.isPresent())</span>
+<span class="fc" id="L89">                        operand2 = op2.get().getNumber();</span>
                 }
 <span class="pc bpc" id="L91" title="1 of 5 branches missed.">                switch (operation.getOperation()) {</span>
                     case '+':

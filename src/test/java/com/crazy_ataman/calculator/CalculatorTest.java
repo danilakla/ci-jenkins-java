@@ -90,7 +90,107 @@ class CalculatorTest {
         assertEquals(expected, token.toString());
     }
 
+    @Test
+    public void testEqualsWithDifferentObjectTypes() {
+        CalculatorToken token = CalculatorToken.number(5.0, 1);
+        assertFalse(token.equals("string"));
+    }
 
+    @Test
+    public void testEqualsWithDifferentTokens() {
+        CalculatorToken token1 = CalculatorToken.number(5.0, 1);
+        CalculatorToken token2 = CalculatorToken.operation('+', 2);
+        assertFalse(token1.equals(token2));
+    }
+
+    @Test
+    public void testOperationTokenWithSameIndex() {
+        CalculatorToken token1 = CalculatorToken.operation('+', 2);
+        CalculatorToken token2 = CalculatorToken.operation('-', 2);
+        assertFalse(token1.equals(token2));
+    }
+
+     @Test
+    public void t1estEqualsWithDifferentObjectTypes() {
+        CalculatorToken token = CalculatorToken.number(5.0, 1);
+        assertFalse(token.equals("string"));
+    }
+
+    @Test
+    public void t4estEqualsWithDifferentTokens() {
+        CalculatorToken token1 = CalculatorToken.number(5.0, 1);
+        CalculatorToken token2 = CalculatorToken.operation('+', 2);
+        assertFalse(token1.equals(token2));
+    }
+
+    @Test
+    public void t64estOperationTokenWithSameIndex() {
+        CalculatorToken token1 = CalculatorToken.operation('+', 2);
+        CalculatorToken token2 = CalculatorToken.operation('-', 2);
+        assertFalse(token1.equals(token2));
+    }
+
+    @Test
+    public void testNumberTokenWithSameIndex() {
+        CalculatorToken token1 = CalculatorToken.number(5.0, 2);
+        CalculatorToken token2 = CalculatorToken.number(10.0, 2);
+        assertFalse(token1.equals(token2));
+    }
+        @Test
+    public void t76estAddition() {
+        Optional<Double> result = calculator.solve("2+3");
+        assertTrue(result.isPresent());
+        assertEquals(5.0, result.get());
+    }
+
+    @Test
+    public void te65stSubtraction() {
+        Optional<Double> result = calculator.solve("5-3");
+        assertTrue(result.isPresent());
+        assertEquals(2.0, result.get());
+    }
+
+    @Test
+    public void t5estMultiplication() {
+        Optional<Double> result = calculator.solve("3*4");
+        assertTrue(result.isPresent());
+        assertEquals(12.0, result.get());
+    }
+
+    @Test
+    public void testDivision() {
+        Optional<Double> result = calculator.solve("8/2");
+        assertTrue(result.isPresent());
+        assertEquals(4.0, result.get());
+    }
+
+    @Test
+    public void testDivisionByZero() {
+        Optional<Double> result = calculator.solve("8/0");
+        assertTrue(result.isPresent());
+        assertTrue(result.get().isInfinite());
+    }
+
+    @Test
+    public void testInvalidExpression() {
+        Optional<Double> result = calculator.solve("abc");
+        assertFalse(result.isPresent());
+    }
+
+
+
+    @Test
+    public void testExpressionWithMultipleOperators() {
+        Optional<Double> result = calculator.solve("3++5");
+        assertFalse(result.isPresent());
+    }
+
+    @Test
+    public void t44estNumberTokenWithSameIndex() {
+        CalculatorToken token1 = CalculatorToken.number(5.0, 2);
+        CalculatorToken token2 = CalculatorToken.number(10.0, 2);
+        assertFalse(token1.equals(token2));
+    }
     @Test
     public void testTokenCreationWithNegativeIndex() {
     
@@ -105,7 +205,7 @@ class CalculatorTest {
         token.toString();
     }
     @Test
-    public void testDivision() {
+    public void t3estDivision() {
         String expression = "8/2";
         Optional<Double> result = calculator.solve(expression);
         assertTrue(result.isPresent());
@@ -113,7 +213,7 @@ class CalculatorTest {
     }
 
     @Test
-    public void testComplexExpression() {
+    public void t2estComplexExpression() {
         String expression = "3+5*2";
         Optional<Double> result = calculator.solve(expression);
         assertTrue(result.isPresent());
@@ -121,7 +221,7 @@ class CalculatorTest {
     }
 
     @Test
-    public void testInvalidExpression() {
+    public void t10estInvalidExpression() {
         String expression = "3+";
         Optional<Double> result = calculator.solve(expression);
         assertFalse(result.isPresent());
