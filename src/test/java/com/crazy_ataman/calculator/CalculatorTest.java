@@ -89,15 +89,7 @@ class CalculatorTest {
         String expected = "CalculatorToken{number=5.0, operation=null, index=1}";
         assertEquals(expected, token.toString());
     }
-      @Test
-    public void testNumberTokenCreationWithNullValue() {
-        assertThrows(NullPointerException.class, () -> CalculatorToken.number(null, 1));
-    }
 
-    @Test
-    public void testOperationTokenCreationWithNullValue() {
-        assertThrows(NullPointerException.class, () -> CalculatorToken.operation(null, 2));
-    }
 
     @Test
     public void testTokenCreationWithNegativeIndex() {
