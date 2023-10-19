@@ -41,7 +41,7 @@ import java.util.stream.Collectors;
 <span class="fc bfc" id="L41" title="All 4 branches covered.">                            if ((token1.getOperation() == '*' || token1.getOperation() == '/')</span>
 <span class="pc bpc" id="L42" title="1 of 4 branches missed.">                                    &amp;&amp; (token2.getOperation() == '+' || token2.getOperation() == '-'))</span>
 <span class="fc" id="L43">                                return -1;</span>
-<span class="pc bpc" id="L44" title="1 of 4 branches missed.">                            else if ((token2.getOperation() == '*' || token2.getOperation() == '/')</span>
+<span class="fc bfc" id="L44" title="All 4 branches covered.">                            else if ((token2.getOperation() == '*' || token2.getOperation() == '/')</span>
 <span class="pc bpc" id="L45" title="1 of 4 branches missed.">                                    &amp;&amp; (token1.getOperation() == '+' || token1.getOperation() == '-'))</span>
 <span class="fc" id="L46">                                return 1;</span>
 <span class="fc" id="L47">                            else return 0;</span>

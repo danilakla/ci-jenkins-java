@@ -1,5 +1,5 @@
 GROUP,PACKAGE,CLASS,INSTRUCTION_MISSED,INSTRUCTION_COVERED,BRANCH_MISSED,BRANCH_COVERED,LINE_MISSED,LINE_COVERED,COMPLEXITY_MISSED,COMPLEXITY_COVERED,METHOD_MISSED,METHOD_COVERED
-Calculator,com.crazy_ataman.calculator,Calculator.new Comparator() {...},0,52,3,13,0,8,3,7,0,2
+Calculator,com.crazy_ataman.calculator,Calculator.new Comparator() {...},0,52,2,14,0,8,2,8,0,2
 Calculator,com.crazy_ataman.calculator,Calculator.new Predicate() {...},0,9,0,0,0,2,0,2,0,2
 Calculator,com.crazy_ataman.calculator,Calculator.new Predicate() {...},0,9,0,0,0,2,0,2,0,2
 Calculator,com.crazy_ataman.calculator,Calculator,0,269,8,23,0,56,8,11,0,2

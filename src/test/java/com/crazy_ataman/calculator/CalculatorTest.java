@@ -177,7 +177,44 @@ class CalculatorTest {
         assertFalse(result.isPresent());
     }
 
+    @Test
+    public void testEmptyString() {
+        Optional<Double> result = calculator.solve("");
+        assertFalse(result.isPresent());
+    }
 
+    @Test
+    public void testNumbersOnly() {
+        Optional<Double> result = calculator.solve("12345");
+        assertFalse(result.isPresent());  // Ожидается отсутствие результата, так как нет операторов
+    }
+
+    @Test
+    public void testOperatorsOnly() {
+        Optional<Double> result = calculator.solve("+-*/");
+        assertFalse(result.isPresent());
+    }
+
+  
+
+    @Test
+    public void testOperatorsAtBeginning() {
+        Optional<Double> result = calculator.solve("+12+34");
+        assertFalse(result.isPresent());
+    }
+
+    @Test
+    public void testOperatorsAtEnd() {
+        Optional<Double> result = calculator.solve("12+34+");
+        assertFalse(result.isPresent());
+    }
+
+    @Test
+    public void testComplexCalculations() {
+        Optional<Double> result = calculator.solve("3+5*2/2-8");
+        assertTrue(result.isPresent());
+        assertEquals(0.0, result.get());
+    }
 
     @Test
     public void testExpressionWithMultipleOperators() {
