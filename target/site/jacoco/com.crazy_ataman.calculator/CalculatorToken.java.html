@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="ru"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>CalculatorToken.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Calculator</a> &gt; <a href="index.source.html" class="el_package">com.crazy_ataman.calculator</a> &gt; <span class="el_source">CalculatorToken.java</span></div><h1>CalculatorToken.java</h1><pre class="source lang-java linenums">package com.crazy_ataman.calculator;
+
+import java.util.Objects;
+
+class CalculatorToken {
+    private final Double number;
+    private final Character operation;
+    private final int index;
+
+<span class="fc" id="L10">    private CalculatorToken(Double number, int index) {</span>
+<span class="fc" id="L11">        this.number = number;</span>
+<span class="fc" id="L12">        this.operation = null;</span>
+<span class="fc" id="L13">        this.index = index;</span>
+<span class="fc" id="L14">    }</span>
+
+<span class="fc" id="L16">    private CalculatorToken(Character operation, int index) {</span>
+<span class="fc" id="L17">        this.number = null;</span>
+<span class="fc" id="L18">        this.operation = operation;</span>
+<span class="fc" id="L19">        this.index = index;</span>
+<span class="fc" id="L20">    }</span>
+
+    public static CalculatorToken number(Double number, int index) {
+<span class="fc" id="L23">        return new CalculatorToken(number, index);</span>
+    }
+
+    public static CalculatorToken operation(Character operation, int index) {
+<span class="fc" id="L27">        return new CalculatorToken(operation, index);</span>
+    }
+
+    boolean isNumber() {
+<span class="pc bpc" id="L31" title="1 of 4 branches missed.">        return number != null &amp;&amp; operation == null;</span>
+    }
+
+    boolean isOperation() {
+<span class="pc bpc" id="L35" title="1 of 4 branches missed.">        return number == null &amp;&amp; operation != null;</span>
+    }
+
+    public Double getNumber() {
+<span class="fc" id="L39">        return number;</span>
+    }
+
+    public Character getOperation() {
+<span class="fc" id="L43">        return operation;</span>
+    }
+
+    public int getIndex() {
+<span class="fc" id="L47">        return index;</span>
+    }
+
+    @Override
+    public boolean equals(Object o) {
+<span class="pc bpc" id="L52" title="1 of 2 branches missed.">        if (this == o) return true;</span>
+<span class="pc bpc" id="L53" title="2 of 4 branches missed.">        if (o == null || getClass() != o.getClass()) return false;</span>
+<span class="fc" id="L54">        CalculatorToken that = (CalculatorToken) o;</span>
+<span class="pc bpc" id="L55" title="2 of 6 branches missed.">        return index == that.index &amp;&amp; Objects.equals(number, that.number) &amp;&amp; Objects.equals(operation, that.operation);</span>
+    }
+
+    @Override
+    public int hashCode() {
+<span class="fc" id="L60">        return Objects.hash(number, operation, index);</span>
+    }
+
+    @Override
+    public String toString() {
+<span class="fc" id="L65">        return &quot;CalculatorToken{&quot; +</span>
+                &quot;number=&quot; + number +
+                &quot;, operation=&quot; + operation +
+                &quot;, index=&quot; + index +
+                '}';
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>

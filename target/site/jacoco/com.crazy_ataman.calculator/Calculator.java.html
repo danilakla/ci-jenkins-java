@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="ru"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Calculator.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Calculator</a> &gt; <a href="index.source.html" class="el_package">com.crazy_ataman.calculator</a> &gt; <span class="el_source">Calculator.java</span></div><h1>Calculator.java</h1><pre class="source lang-java linenums">package com.crazy_ataman.calculator;
+
+import java.util.*;
+import java.util.function.Predicate;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+import java.util.stream.Collectors;
+
+<span class="fc" id="L9">public class Calculator {</span>
+
+    public Optional&lt;Double&gt; solve(String line) {
+<span class="fc" id="L12">        Optional&lt;Double&gt; optional = Optional.empty();</span>
+<span class="fc" id="L13">        Pattern pattern = Pattern.compile(&quot;^\\d+([+\\-*/]\\d+)*$&quot;);</span>
+<span class="fc" id="L14">        Matcher matcher = pattern.matcher(line);</span>
+<span class="fc bfc" id="L15" title="All 2 branches covered.">        if (matcher.matches()) {</span>
+<span class="fc" id="L16">            List&lt;CalculatorToken&gt; tokens = new ArrayList&lt;&gt;();</span>
+<span class="fc" id="L17">            StringBuilder numberBuffer = new StringBuilder();</span>
+<span class="pc bpc" id="L18" title="1 of 2 branches missed.">            for (int i = 0; i &lt; line.length() + 1; i++) {</span>
+<span class="fc bfc" id="L19" title="All 2 branches covered.">                if (i == line.length()) {</span>
+<span class="fc" id="L20">                    tokens.add(CalculatorToken.number(Double.valueOf(String.valueOf(numberBuffer)), tokens.size()));</span>
+<span class="fc" id="L21">                    break;</span>
+                }
+<span class="fc bfc" id="L23" title="All 2 branches covered.">                if (Pattern.compile(&quot;^[+\\-*/]$&quot;).matcher(String.valueOf(line.charAt(i))).matches()) {</span>
+<span class="pc bpc" id="L24" title="1 of 2 branches missed.">                    if (numberBuffer.length() &gt; 0) {</span>
+<span class="fc" id="L25">                        tokens.add(CalculatorToken.number(Double.valueOf(String.valueOf(numberBuffer)), tokens.size()));</span>
+<span class="fc" id="L26">                        numberBuffer = new StringBuilder();</span>
+                    }
+<span class="fc" id="L28">                    tokens.add(CalculatorToken.operation(line.charAt(i), tokens.size()));</span>
+                } else {
+<span class="fc" id="L30">                    numberBuffer.append(line.charAt(i));</span>
+                }
+            }
+<span class="fc" id="L33">            List&lt;CalculatorToken&gt; operations = tokens.stream().filter(new Predicate&lt;CalculatorToken&gt;() {</span>
+                        @Override
+                        public boolean test(CalculatorToken token) {
+<span class="fc" id="L36">                            return token.isOperation();</span>
+                        }
+<span class="fc" id="L38">                    }).sorted(new Comparator&lt;CalculatorToken&gt;() {</span>
+                        @Override
+                        public int compare(CalculatorToken token1, CalculatorToken token2) {
+<span class="pc bpc" id="L41" title="3 of 4 branches missed.">                            if ((token1.getOperation() == '*' || token1.getOperation() == '/')</span>
+<span class="pc bpc" id="L42" title="3 of 4 branches missed.">                                    &amp;&amp; (token2.getOperation() == '+' || token2.getOperation() == '-'))</span>
+<span class="fc" id="L43">                                return -1;</span>
+<span class="nc bnc" id="L44" title="All 4 branches missed.">                            else if ((token2.getOperation() == '*' || token2.getOperation() == '/')</span>
+<span class="nc bnc" id="L45" title="All 4 branches missed.">                                    &amp;&amp; (token1.getOperation() == '+' || token1.getOperation() == '-'))</span>
+<span class="nc" id="L46">                                return 1;</span>
+<span class="nc" id="L47">                            else return 0;</span>
+                        }
+<span class="fc" id="L49">                    }).collect(Collectors.toList());</span>
+<span class="fc" id="L50">            List&lt;CalculatorToken&gt; numbers = tokens.stream().filter(new Predicate&lt;CalculatorToken&gt;() {</span>
+                @Override
+                public boolean test(CalculatorToken token) {
+<span class="fc" id="L53">                    return token.isNumber();</span>
+                }
+<span class="fc" id="L55">            }).collect(Collectors.toList());</span>
+<span class="fc" id="L56">            Double result = null;</span>
+<span class="fc bfc" id="L57" title="All 2 branches covered.">            for (int i = 0; i &lt; operations.size(); i++) {</span>
+<span class="fc" id="L58">                CalculatorToken operation = operations.get(i);</span>
+<span class="fc" id="L59">                double operand1 = 0;</span>
+<span class="fc" id="L60">                double operand2 = 0;</span>
+<span class="fc" id="L61">                Predicate&lt;CalculatorToken&gt; operandPredicate1 = new Predicate&lt;CalculatorToken&gt;() {</span>
+                    @Override
+                    public boolean test(CalculatorToken number) {
+<span class="fc bfc" id="L64" title="All 2 branches covered.">                        return number.getIndex() == operation.getIndex() - 1;</span>
+                    }
+                };
+<span class="fc" id="L67">                Predicate&lt;CalculatorToken&gt; operandPredicate2 = new Predicate&lt;CalculatorToken&gt;() {</span>
+                    @Override
+                    public boolean test(CalculatorToken number) {
+<span class="fc bfc" id="L70" title="All 2 branches covered.">                        return number.getIndex() == operation.getIndex() + 1;</span>
+                    }
+                };
+<span class="fc bfc" id="L73" title="All 2 branches covered.">                if (result == null) {</span>
+<span class="fc" id="L74">                    Optional&lt;CalculatorToken&gt; op1 = numbers.stream().filter(operandPredicate1).findFirst();</span>
+<span class="pc bpc" id="L75" title="1 of 2 branches missed.">                    if (op1.isPresent())</span>
+<span class="fc" id="L76">                        operand1 = op1.get().getNumber();</span>
+<span class="fc" id="L77">                    Optional&lt;CalculatorToken&gt; op2 = numbers.stream().filter(operandPredicate2).findFirst();</span>
+<span class="pc bpc" id="L78" title="1 of 2 branches missed.">                    if (op2.isPresent())</span>
+<span class="fc" id="L79">                        operand2 = op2.get().getNumber();</span>
+<span class="pc bpc" id="L80" title="1 of 2 branches missed.">                } else if (operations.get(i - 1).getIndex() &gt; operation.getIndex()) {</span>
+<span class="fc" id="L81">                    Optional&lt;CalculatorToken&gt; op1 = numbers.stream().filter(operandPredicate1).findFirst();</span>
+<span class="pc bpc" id="L82" title="1 of 2 branches missed.">                    if (op1.isPresent())</span>
+<span class="fc" id="L83">                        operand1 = op1.get().getNumber();</span>
+<span class="fc" id="L84">                    operand2 = result;</span>
+<span class="pc bnc" id="L85" title="All 2 branches missed.">                } else if (operations.get(i - 1).getIndex() &lt; operation.getIndex()) {</span>
+<span class="nc" id="L86">                    operand1 = result;</span>
+<span class="nc" id="L87">                    Optional&lt;CalculatorToken&gt; op2 = numbers.stream().filter(operandPredicate2).findFirst();</span>
+<span class="nc bnc" id="L88" title="All 2 branches missed.">                    if (op2.isPresent())</span>
+<span class="nc" id="L89">                        operand2 = op2.get().getNumber();</span>
+                }
+<span class="pc bpc" id="L91" title="1 of 5 branches missed.">                switch (operation.getOperation()) {</span>
+                    case '+':
+<span class="fc" id="L93">                        result = operand1 + operand2;</span>
+<span class="fc" id="L94">                        break;</span>
+                    case '-':
+<span class="fc" id="L96">                        result = operand1 - operand2;</span>
+<span class="fc" id="L97">                        break;</span>
+                    case '*':
+<span class="fc" id="L99">                        result = operand1 * operand2;</span>
+<span class="fc" id="L100">                        break;</span>
+                    case '/':
+<span class="fc" id="L102">                        result = operand1 / operand2;</span>
+                        break;
+                }
+            }
+<span class="fc" id="L106">            optional = Optional.ofNullable(result);</span>
+        }
+<span class="fc" id="L108">        return optional;</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>
